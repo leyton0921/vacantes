@@ -1,0 +1,19 @@
+@import "./variables.scss";
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, $MoradoClaro, $Rosa, $Rojo);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    padding: 0.6rem;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
