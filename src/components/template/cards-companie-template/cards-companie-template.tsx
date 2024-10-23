@@ -1,9 +1,9 @@
-// templates/cards-template/CardsCompanieTemplate.tsx
 "use client";
 import React, { useState } from "react";
 import Card from "@/components/molecules/card/card";
 import Pagination from "@/components/molecules/paginaton/pagination";
 import styles from "./cards-template.module.scss";
+
 
 interface ICompany {
     id: string;
@@ -13,6 +13,8 @@ interface ICompany {
 }
 
 const CardsCompanieTemplate: React.FC = () => {
+  
+
     const companies: ICompany[] = [
         { id: "1", tittle: "Compañía1", description: "Ciudad de México", contact: "Contacto: 555-0101" },
         { id: "2", tittle: "Compañía2", description: "Guadalajara", contact: "Contacto: 555-0202" },
@@ -49,7 +51,6 @@ const CardsCompanieTemplate: React.FC = () => {
                     />
                 ))}
             </div>
-
       
             <Pagination
                 currentPage={currentPage}

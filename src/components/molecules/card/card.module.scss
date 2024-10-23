@@ -20,7 +20,7 @@
 
     gap: 0.5rem;
 
-    .buttonEdit,.buttonDelete{
+    .buttonEdit,.buttonDelete,.buttonEditVacancies{
         width: 1.8rem;
         height: 1.5rem;
         border: 0.1rem solid $Border-gris;
@@ -39,6 +39,14 @@
 
         &:hover{
             background-color: $button-companies-hover;
+            color: $button-delete-hover-texto;
+        }
+    }
+
+    .buttonEditVacancies{
+        color: $button-vacants-normal;
+        &:hover{
+            background-color: $button-vacants-hover;
             color: $button-delete-hover-texto;
         }
     }

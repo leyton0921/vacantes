@@ -5,7 +5,6 @@ import styles from "./head.module.scss";
 interface IHeadProps {
     title: string;
     children: ReactNode;
-
 }
 
 const Head: React.FC<IHeadProps> = ({ title, children }) => {
