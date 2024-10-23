@@ -12,7 +12,7 @@ const Navbar = () => {
     return (
         <nav className={styles.Nav}>
             <ul>
-                <Link href="/vacants" className={`${styles.link} ${currentPath === "/vacants"?styles.Vactive: ""}`} ><PiSuitcase/>Vacantes</Link>
+                <Link href="/vacancies" className={`${styles.link} ${currentPath === "/vacancies"?styles.Vactive: ""}`} ><PiSuitcase/>Vacantes</Link>
                 <Link href="/companie" className={`${styles.link} ${currentPath === "/companie"?styles.Cactive: ""}`}><LuBuilding2/>Compañías</Link>
             </ul>
         </nav>
