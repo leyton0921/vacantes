@@ -5,6 +5,8 @@ import Button from "@/components/atoms/button/button";
 import Caption from "@/components/atoms/caption/caption";
 import Label from "@/components/atoms/label/label";
 import { IoMdClose } from "react-icons/io";
+import Overlay from "@/components/atoms/overlay/overlay";
+import FormContainer from "@/components/atoms/form-container/form-cotainer";
 
 interface IFormCompaniesProps {
     onClose: () => void;
@@ -21,51 +23,40 @@ const FormCompanies: React.FC<IFormCompaniesProps> = ({ onClose }) => {
     };
 
     return (
-        <div className={styles.overlay}>
-            <div className={styles.formContainer}>
-                <Button className={styles.closeIcon} onClick={onClose}>
-                    <IoMdClose size={24} />
-                </Button>
-
-                <Caption className={styles.title}>Agregar Compañía</Caption>
-
+        <Overlay>
+            <FormContainer onClick={onClose} tittle="Agregar compañía">
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <Label className={styles.label}>Nombre</Label>
-                        <Input
-                            className={styles.input}
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                    </div>
+                    <Label className={styles.label}>Nombre</Label>
+                    <Input
+                        className={styles.input}
+                        type="text"
+                        placeHolder="Ingrese el nombre de la compañía"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
 
-                    <div>
-                        <Label className={styles.label}>Ubicación</Label>
-                        <Input
-                            className={styles.input}
-                            type="text"
-                            value={location}
-                            onChange={(e) => setLocation(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <Label className={styles.label}>Contacto</Label>
-                        <Input
-                            className={styles.input}
-                            type="text"
-                            value={contact}
-                            onChange={(e) => setContact(e.target.value)}
-                        />
-                    </div>
+                    <Label className={styles.label}>Ubicación</Label>
+                    <Input
+                        className={styles.input}
+                        type="text"
+                        placeHolder="Ingrese la ubicación"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                    />
 
-                    <div>
-                        <Button type="submit" className={styles.submitButton}>Agregar</Button>
+                    <Label className={styles.label}>Contacto</Label>
+                    <Input
+                        className={styles.input}
+                        type="text"
+                        placeHolder="Ingrese el contacto"
+                        value={contact}
+                        onChange={(e) => setContact(e.target.value)}
+                    />
 
-                    </div>
+                    <Button type="submit" className={styles.submitButton}>Agregar</Button>
                 </form>
-            </div>
-        </div>
+            </FormContainer>
+        </Overlay>
     );
 };
 

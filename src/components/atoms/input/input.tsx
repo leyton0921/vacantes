@@ -6,6 +6,7 @@ interface IInputProps {
     placeHolder?: string;
     value?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    required?: boolean | undefined;
 
 }
 
@@ -15,6 +16,7 @@ const Input: React.FC<IInputProps> = ({
     placeHolder = '',
     value = '',
     onChange,
+    required,
 
 }) => {
     return (
@@ -24,6 +26,7 @@ const Input: React.FC<IInputProps> = ({
             placeholder={placeHolder}
             value={value}
             onChange={onChange}
+            required={required}
  
         />
     );

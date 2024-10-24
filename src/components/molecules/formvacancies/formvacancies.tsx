@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styles from "./formvacancies.module.scss";
 import Input from "@/components/atoms/input/input";
 import Button from "@/components/atoms/button/button";
-import Caption from "@/components/atoms/caption/caption";
 import Label from "@/components/atoms/label/label";
-import { IoMdClose } from "react-icons/io";
+import Overlay from "@/components/atoms/overlay/overlay";
+import FormContainer from "@/components/atoms/form-container/form-cotainer";
 
 interface IFormVacanciesProps {
     onClose: () => void;
@@ -22,14 +22,9 @@ const FormVacancies: React.FC<IFormVacanciesProps> = ({ onClose }) => {
     };
 
     return (
-        <div className={styles.overlay}>
-            <div className={styles.formContainer}>
-                <Button className={styles.closeIcon} onClick={onClose}>
-                    <IoMdClose size={24} />
-                </Button>
-
-                <Caption className={styles.title}>Agregar Vacante</Caption>
-
+        <Overlay>
+            <FormContainer onClick={onClose} tittle="Agregar vacantes">
+     
                 <form onSubmit={handleSubmit}>
                     <div>
                         <Label className={styles.label}>Título</Label>
@@ -37,8 +32,7 @@ const FormVacancies: React.FC<IFormVacanciesProps> = ({ onClose }) => {
                             className={styles.input}
                             type="text"
                             value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                        />
+                            onChange={(e) => setTitle(e.target.value)}                       />
                     </div>
 
                     <div>
@@ -82,8 +76,8 @@ const FormVacancies: React.FC<IFormVacanciesProps> = ({ onClose }) => {
                         <Button type="submit" className={styles.submitButton}>Agregar</Button>
                     </div>
                 </form>
-            </div>
-        </div>
+            </FormContainer>
+        </Overlay>
     );
 };
 
