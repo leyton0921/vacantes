@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import styles from "./formompanie.module.scss";
 import Input from "@/components/atoms/input/input";
 import Button from "@/components/atoms/button/button";
-import Caption from "@/components/atoms/caption/caption";
 import Label from "@/components/atoms/label/label";
-import { IoMdClose } from "react-icons/io";
 import Overlay from "@/components/atoms/overlay/overlay";
 import FormContainer from "@/components/atoms/form-container/form-cotainer";
 
