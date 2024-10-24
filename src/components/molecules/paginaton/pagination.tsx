@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./pagination.module.scss";
 import Button from "@/components/atoms/button/button";
+import { MdNavigateNext } from "react-icons/md";
+import { MdNavigateBefore } from "react-icons/md";
 
 interface PaginationProps {
     currentPage: number;
@@ -16,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, pagina
                 disabled={currentPage === 1}
                 onClick={() => paginate(currentPage - 1)}
             >
-                &lt;
+               <MdNavigateBefore/>
             </Button>
             <span>Página {currentPage} de {totalPages}</span>
             <Button
@@ -24,7 +26,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, pagina
                 disabled={currentPage === totalPages}
                 onClick={() => paginate(currentPage + 1)}
             >
-                &gt;
+                <MdNavigateNext/>
             </Button>
         </div>
     );

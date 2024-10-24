@@ -14,10 +14,13 @@
 }
 
 .formContainer {
-    background-color: #fff;
-    padding: 20px;
-    width: 400px;
-    border-radius: 8px;
+    background-color: $Blanco;
+    padding: 1rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1001;
@@ -28,25 +31,20 @@
     top: 16px;
     right: 16px;
     cursor: pointer;
-    color: #a1a1a1;
-
-    &:hover {
-        color: #000;
-    }
+    color: $color-tittle;
+    background: none;
+    border: none;
 }
 
 .title {
     font-size: 1.5rem;
     font-weight: bold;
     color: $color-tittle;
-    margin-bottom: 20px;
-    text-align: center;
 }
 
 .label {
     font-size: 0.9rem;
     color: $color-subtittle;
-    margin-bottom: 8px;
     display: block;
 }
 
@@ -55,9 +53,9 @@
 .select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid $Border-gris;
     font-size: 0.9rem;
     color: $color-text;
 
@@ -70,11 +68,10 @@
 
 .textarea {
     height: 100px;
-    resize: none;
 }
 
 .select {
-    background-color: #fff;
+    background:none;
     appearance: none;
     cursor: pointer;
 }
@@ -83,7 +80,7 @@
     width: 100%;
     padding: 12px;
     background-color: $button-vacants-normal;
-    color: #fff;
+    color: $Blanco;
     font-weight: bold;
     border: none;
     border-radius: 4px;

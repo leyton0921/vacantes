@@ -1,3 +1,5 @@
+@import "../../../styles/variables.scss";
+
 .overlay {
     position: fixed;
     top: 0;
@@ -12,10 +14,13 @@
 }
 
 .formContainer {
-    background-color: white;
-    padding: 20px;
+    background-color: $Blanco;
+    padding: 1rem;
     border-radius: 10px;
-    width: 400px;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     position: relative;
 }
@@ -25,45 +30,49 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
-    color: #666;
+    color: $color-tittle;
+    border: none;
+    background: none;
 }
 
 .title {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
+    color: $color-tittle;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+
 }
 
 .label {
     font-size: 14px;
-    margin-bottom: 5px;
+    margin-bottom: 1rem;
+    color: $color-subtittle;
 }
 
 .input {
     padding: 10px;
-    border: 1px solid #d4d4d4;
+    margin-bottom: 1rem;
+    border: 1px solid $Border-gris;
     border-radius: 5px;
     font-size: 14px;
     width: 100%;
     outline: none;
     transition: border-color 0.3s;
+    color: $color-text;
     
     &:focus {
-        border-color: #ff0080; 
+        border-color: $button-companies-normal; 
     }
 }
 
 .textarea {
     min-height: 100px;
     padding: 10px;
-    border: 1px solid #d4d4d4;
+    border: 1px solid $Border-gris;
     border-radius: 5px;
     font-size: 14px;
     width: 100%;
@@ -72,13 +81,13 @@
     transition: border-color 0.3s;
     
     &:focus {
-        border-color: #ff0080;
+        border-color: $button-companies-normal;
     }
 }
 
 .select {
     padding: 10px;
-    border: 1px solid #d4d4d4;
+    border: 1px solid $Border-gris;
     border-radius: 5px;
     font-size: 14px;
     width: 100%;
@@ -86,13 +95,14 @@
     transition: border-color 0.3s;
     
     &:focus {
-        border-color: #ff0080;
+        border-color: $button-companies-normal;
     }
 }
 
 .submitButton {
-    background-color: #ff0080; 
-    color: white;
+    background-color: $button-companies-normal; 
+    width: 100%;
+    color: $Blanco;
     padding: 12px;
     border: none;
     border-radius: 5px;
@@ -101,6 +111,6 @@
     transition: background-color 0.3s;
     
     &:hover {
-        background-color: #e60073;
+        background-color: $button-companies-hover;
     }
 }
