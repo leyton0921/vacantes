@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./pagination.module.scss";
+import Button from "@/components/atoms/button/button";
 
 interface PaginationProps {
     currentPage: number;
@@ -10,21 +11,21 @@ interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, paginate }) => {
     return (
         <div className={styles.pagination}>
-            <button
+            <Button
                 className={styles.paginationButton}
                 disabled={currentPage === 1}
                 onClick={() => paginate(currentPage - 1)}
             >
                 &lt;
-            </button>
+            </Button>
             <span>Página {currentPage} de {totalPages}</span>
-            <button
+            <Button
                 className={styles.paginationButton}
                 disabled={currentPage === totalPages}
                 onClick={() => paginate(currentPage + 1)}
             >
                 &gt;
-            </button>
+            </Button>
         </div>
     );
 };
