@@ -15,10 +15,9 @@ interface IProps {
 
 export default async function Vacants({ searchParams }: IProps) {
   
-    const params = await searchParams;
 
-    const page = params.page ? parseInt(params.page) : 1;
-    const size = params.size ? parseInt(params.size) : 3;
+    const page = searchParams.page ? parseInt(searchParams.page) : 1;
+    const size = searchParams.size ? parseInt(searchParams.size) : 3;
 
 
     const UseVacancieService = new VacancieService();

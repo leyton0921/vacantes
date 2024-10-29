@@ -4,34 +4,30 @@ import ButtonAddCompanie from "@/components/molecules/button-add-companie/button
 import CardsCompanieTemplate from "@/components/template/cards-companie-template/cards-companie-template";
 import { CompanieService } from "@/services/companie.services";
 
-
 interface IProps {
     searchParams: {
-      page?: string;
-      size?: string;
-      name?: string;
-    }
-  }
+        page?: string;
+        size?: string;
+        name?: string;
+    };
+}
 
-export default async function Companie({ searchParams}: IProps) {
-    const UseCompanyService = new CompanieService()
+export default async function Companie({ searchParams }: IProps) {
+    const companyService = new CompanieService();
 
-    const params = await searchParams;
+   
+    const page = searchParams.page ? parseInt(searchParams.page) : 1;
+    const size = searchParams.size ? parseInt(searchParams.size) : 3;
 
-    const page = params.page ? parseInt(params.page) : 1;
-    const size = params.size ? parseInt(params.size) : 3;
-
-    const data = await UseCompanyService.findAll(page,size)
-
- 
-
-
+    const data = await companyService.findAll(page, size);
 
     return (
         <>
             <Div>
-            <Head title={"Compañía"}><ButtonAddCompanie/></Head>
-            <CardsCompanieTemplate data={data} />
+                <Head title={"Compañía"}>
+                    <ButtonAddCompanie />
+                </Head>
+                <CardsCompanieTemplate data={data} />
             </Div>
         </>
     );
