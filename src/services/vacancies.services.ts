@@ -45,10 +45,10 @@ export class VacancieService{
         }
     };
     
-    async createVacancie(body: any):Promise<ICreateVacancyBody>{
+    async createVacancie(body: ICreateVacancyBody):Promise<ICreateVacancyBody>{
         try {
             
-            return await this.httpClient.post<ICreateVacancyBody,any>("vacants", body);
+            return await this.httpClient.post<ICreateVacancyBody,ICreateVacancyBody>("vacants", body);
         } catch (error) {
             console.error("Error creating company:", error);
             throw error;

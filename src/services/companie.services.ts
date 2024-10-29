@@ -33,9 +33,9 @@ export class CompanieService{
         }
     };
     
-    async createCompany(body: any): Promise<ICreateCompany> {
+    async createCompany(body: ICreateCompany): Promise<ICreateCompany> {
         try {
-            return await this.httpClient.post<ICreateCompany, any>("company", body);
+            return await this.httpClient.post<ICreateCompany, ICreateCompany>("company", body);
         } catch (error) {
             console.error("Error creating company:", error);
             throw error;
