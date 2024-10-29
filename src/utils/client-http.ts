@@ -1,4 +1,4 @@
-const defaultBaseUrl: string = "https://";
+const defaultBaseUrl: string = "https://vacantsbackendgates-production.up.railway.app/api/v1";
 
 export class HttpClient {
     private baseUrl: string;
@@ -9,17 +9,17 @@ export class HttpClient {
 
     private async getHeaders() {
         return {
-            "content-Type": "aplication/json"
+            "Content-Type": "application/json"
         }
     };
 
     private async handleResponse(response: Response) {
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(errorData.message || "ocurrio un error en la petición.");
+            throw new Error(`${response.status}: ${errorData.message || "Ocurrió un error en la petición."}`);
         }
-        return await response.json()
-    };
+        return response.json();
+    }
 
     async get<T>(url: string): Promise<T> {
         const headers = await this.getHeaders()
@@ -31,14 +31,14 @@ export class HttpClient {
         return this.handleResponse(response)
     };
 
-    async delete<T>(url: string): Promise<T> {
+    async delete(url: string): Promise<void> {
         const headers = await this.getHeaders()
         const response = await fetch(`${this.baseUrl}/${url}`, {
             headers: headers,
             method: "DELETE"
         });
 
-        return this.handleResponse(response)
+
     };
 
     async post<T, R>(url: string, body: R): Promise<T> {
@@ -49,6 +49,16 @@ export class HttpClient {
             body: JSON.stringify(body)
         });
 
+        return this.handleResponse(response)
+    };
+
+    async getcompanies<T>(url: string): Promise<T> {
+        const headers = await this.getHeaders()
+        const response = await fetch(`${this.baseUrl}/${url}`, {
+            headers: headers,
+            method: "GET",
+            cache: "no-store"
+        });
         return this.handleResponse(response)
     };
 }

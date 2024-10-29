@@ -1,25 +1,10 @@
-export interface ICompany {
-    id:       string;
-    name:     string;
-    location: string;
-    contact:  string;
-    vacants:  Vacant[];
-}
-
-export interface ICreateCompany{
-    name:     string;
-    location: string;
-    contact:  string;
-} 
-
-
-export interface IGetCompanyResponse {
+export interface IVacancies {
     totalPages:       number;
     totalElements:    number;
     pageable:         Pageable;
     numberOfElements: number;
     size:             number;
-    content:          ICompany[];
+    content:          Content[];
     number:           number;
     sort:             Sort[];
     first:            boolean;
@@ -27,13 +12,26 @@ export interface IGetCompanyResponse {
     empty:            boolean;
 }
 
-
-
-export interface Vacant {
+export interface Content {
     id:          string;
     title:       string;
     description: string;
     status:      string;
+    company:     Company[];
+}
+
+export interface ICreateVacancyBody {
+    title: string;
+    description: string;
+    status: string;
+    companyId: string;
+}
+
+export interface Company {
+    id:       string;
+    name:     string;
+    location: string;
+    contact:  string;
 }
 
 export interface Pageable {

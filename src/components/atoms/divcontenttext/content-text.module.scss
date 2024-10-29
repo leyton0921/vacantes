@@ -1,8 +1,9 @@
 @import "../../../styles/variables.scss";
 
 .divContainer{
-    width: 30%;
-    height: 8rem;
+    max-width: 19rem;
+ min-width: 19rem;
+    height: 10rem;
     border-radius: 0.5rem;
     box-shadow: 1px 1px 1px $Border-gris;
     padding: 1rem;
