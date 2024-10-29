@@ -38,6 +38,7 @@ export class HttpClient {
             method: "DELETE"
         });
 
+        return response.json()
 
     };
 
