@@ -16,9 +16,8 @@ interface ICardsProps {
     tittle: string;
     description: string;
     contact: string;
-    company?:string|any;
 }
-const Card: React.FC<ICardsProps> = ({ id, tittle, description, contact ,company}) => {
+const Card: React.FC<ICardsProps> = ({ id, tittle, description, contact }) => {
 const currentPath = usePathname();
 const useCompaniServer = new CompanieService();
 const useVacanciesServer = new VacancieService()
