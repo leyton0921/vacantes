@@ -7,9 +7,9 @@ import { VacancieService } from "@/services/vacancies.services";
 
 interface IProps {
     searchParams: {
-        page?: string;  
-        size?: string; 
-        name?: string; 
+        page: string;  
+        size: string; 
+
     }
 }
 

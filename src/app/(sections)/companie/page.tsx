@@ -6,9 +6,8 @@ import { CompanieService } from "@/services/companie.services";
 
 interface IProps {
     searchParams: {
-        page?: string;
-        size?: string;
-        name?: string;
+        page: string;
+        size: string;
     };
 }
 
