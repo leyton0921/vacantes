@@ -38,7 +38,7 @@ export class HttpClient {
             method: "DELETE"
         });
 
-        return response.json()
+     
 
     };
 
@@ -62,4 +62,14 @@ export class HttpClient {
         });
         return this.handleResponse(response)
     };
+
+    async put<T, R>(url: string, body: R): Promise<T> {
+        const headers = await this.getHeaders();
+        const response = await fetch(`${this.baseUrl}/${url}`, {
+            headers: headers,
+            method: "PUT",
+            body: JSON.stringify(body),
+        });
+        return this.handleResponse(response);
+    }
 }

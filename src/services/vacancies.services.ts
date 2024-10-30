@@ -22,6 +22,18 @@ export class VacancieService{
         }
     }
 
+    async getVacancieById(id:string){
+        try {
+
+            const vacants = await this.httpClient.get<ICreateVacancyBody>(`vacants/${id}`);
+            console.log(vacants); 
+            return vacants;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+
     
     async findAllCompanies() {
         try {
@@ -54,5 +66,15 @@ export class VacancieService{
             throw error;
         }
     }
+    
+    async updateVacancie(id: string, body: ICreateVacancyBody): Promise<ICreateVacancyBody> {
+        try {
+            return await this.httpClient.put<ICreateVacancyBody, ICreateVacancyBody>(`vacants/${id}`, body);
+        } catch (error) {
+            console.error("Error updating vacancy:", error);
+            throw error; 
+        }
+    }
+  
 }
 

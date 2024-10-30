@@ -1,9 +1,9 @@
-"use client";
 import React from "react";
 import Card from "@/components/molecules/card/card";
 import Pagination from "@/components/molecules/paginaton/pagination";
 import styles from "./cards-vacancies-template.module.scss";
 import { IVacancies } from "@/models/vacancies";
+import { VacancieService } from "@/services/vacancies.services";
 
 
 interface IProps {
@@ -12,9 +12,11 @@ interface IProps {
 }
 
 
-function CardsVacanciesTemplate({ data }: IProps) {
+async function CardsVacanciesTemplate({ data }: IProps) {
 
-    console.log(data)
+    const UseVacancieService = new VacancieService()
+    const dataCompany = await UseVacancieService.findAllCompanies()
+
 
     return (
         <div className={styles.container}>
@@ -26,6 +28,7 @@ function CardsVacanciesTemplate({ data }: IProps) {
                             tittle={vacant.title}
                             description={vacant.description}
                             contact={vacant.status}
+                            data={dataCompany}
                         />
                     )
                 )}

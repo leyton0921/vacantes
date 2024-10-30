@@ -4,26 +4,22 @@ import ButtonAddVacancies from "@/components/molecules/button-add-vacancies/butt
 import CardsVacanciesTemplate from "@/components/template/cards-vacancies-template/cards-vacancies-template";
 import { VacancieService } from "@/services/vacancies.services";
 
-
 interface IProps {
-    searchParams: {
+    searchParams: Promise<{
         page: string;  
         size: string; 
-
-    }
+    }>;
 }
 
 export default async function Vacants({ searchParams }: IProps) {
-  
+    const params = await searchParams;
 
-    const page = searchParams.page ? parseInt(searchParams.page) : 1;
-    const size = searchParams.size ? parseInt(searchParams.size) : 3;
-
+    const page = params.page ? parseInt(params.page) : 1;
+    const size = params.size ? parseInt(params.size) : 3;
 
     const UseVacancieService = new VacancieService();
-    const data = await UseVacancieService.findAll(page,size);
+    const data = await UseVacancieService.findAll(page, size);
     const dataCompany = await UseVacancieService.findAllCompanies();
-
 
     return (
         <>
@@ -31,7 +27,7 @@ export default async function Vacants({ searchParams }: IProps) {
                 <Head title={"Vacantes"}>
                     <ButtonAddVacancies data={dataCompany} />
                 </Head>
-                <CardsVacanciesTemplate data={data}  />
+                <CardsVacanciesTemplate data={data} />
             </Div>
         </>
     );

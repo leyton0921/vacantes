@@ -41,5 +41,13 @@ export class CompanieService{
             throw error;
         }
     }
+    async updateCompany(id: string, body: ICreateCompany): Promise<ICreateCompany> {
+        try {
+            return await this.httpClient.put<ICreateCompany, ICreateCompany>(`company/${id}`, body);
+        } catch (error) {
+            console.error("Error updating vacancy:", error);
+            throw error; 
+        }
+    }
 }
 
