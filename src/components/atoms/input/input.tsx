@@ -7,7 +7,7 @@ interface IInputProps {
     value?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     required?: boolean | undefined;
-
+    onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void; 
 }
 
 const Input: React.FC<IInputProps> = ({
@@ -17,7 +17,7 @@ const Input: React.FC<IInputProps> = ({
     value = '',
     onChange,
     required,
-
+    onKeyDown
 }) => {
     return (
         <input
@@ -27,7 +27,7 @@ const Input: React.FC<IInputProps> = ({
             value={value}
             onChange={onChange}
             required={required}
- 
+            onKeyDown={onKeyDown} 
         />
     );
 };
