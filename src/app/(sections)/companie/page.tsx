@@ -6,29 +6,27 @@ import { CompanieService } from "@/services/companie.services";
 
 interface IProps {
     searchParams: {
-        page: string;
-        size: string;
+        page?: string;
+        size?: string;
     };
 }
 
 export default async function Companie({ searchParams }: IProps) {
     const companyService = new CompanieService();
-    const params = await searchParams;
 
-   
-    const page = params.page ? parseInt(params.page) : 1;
-    const size = params.size ? parseInt(params.size) : 3;
+    const { page = "1", size = "3" } = searchParams;
 
-    const data = await companyService.findAll(page, size);
+    const pageNum = parseInt(page, 10);
+    const sizeNum = parseInt(size, 10);
+
+    const data = await companyService.findAll(pageNum, sizeNum);
 
     return (
-        <>
-            <Div>
-                <Head title={"Compañía"}>
-                    <ButtonAddCompanie />
-                </Head>
-                <CardsCompanieTemplate data={data} />
-            </Div>
-        </>
+        <Div>
+            <Head title={"Compañía"}>
+                <ButtonAddCompanie />
+            </Head>
+            <CardsCompanieTemplate data={data} />
+        </Div>
     );
 }
