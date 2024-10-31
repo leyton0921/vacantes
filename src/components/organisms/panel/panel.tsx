@@ -7,8 +7,6 @@ import { Content } from "@/models/vacancies"
 import { VacancieService } from "@/services/vacancies.services"
 import Card from "@/components/molecules/card/card"
 import { ICompany } from "@/models/companie"
-import Overlay from "@/components/atoms/overlay/overlay"
-import FormContainer from "@/components/atoms/form-container/form-cotainer"
 
 interface IProps{
     data:ICompany[]
