@@ -37,7 +37,7 @@ export class HttpClient {
             headers: headers,
             method: "DELETE"
         });
-
+        console.log(response)
      
 
     };

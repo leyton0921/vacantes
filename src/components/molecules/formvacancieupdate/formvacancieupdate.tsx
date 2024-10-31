@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import styles from "./formvacancieupdate.module.scss";
 import Input from "@/components/atoms/input/input";
 import Button from "@/components/atoms/button/button";
